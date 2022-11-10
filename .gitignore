@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+/space-tourism-website-figma
+/space-tourism-website-main
+
 # dependencies
 /node_modules
 /.pnp
