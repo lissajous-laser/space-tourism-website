@@ -1,0 +1,58 @@
+@use 'design-system';
+
+$darkNavy: rgb(11, 13, 25);
+
+.background {
+  background-image: url('../public/assets/home/background-home-desktop.jpg');
+}
+
+.bodyTextExtended {
+  @extend .bodyText;
+  // border: 1px solid blue;
+}
+
+.heading1Extended {
+  @extend .heading1;
+  margin-top: 24px;
+  margin-bottom: 20px;
+}
+
+.exploreTxt {
+  color: $darkNavy;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+.exploreBtn {
+  display: grid;
+  place-items: center;
+  background-color: white;
+  width: 274px;
+  height: 274px;
+  border-radius: 9999px;
+  align-self: end;
+}
+
+.textAndBtn {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  // border: 2px solid white;
+  height: 650px;
+
+}
+
+.text {
+  width: 450px;
+  align-self: end;
+}
+
+.xPadding {
+  width: 77.1%;
+  margin: 0 auto;
+}
+
+.yPadding {
+  padding-top: 40px;
+  padding-bottom: 130px;
+}

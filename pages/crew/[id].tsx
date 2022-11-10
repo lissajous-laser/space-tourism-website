@@ -1,6 +1,6 @@
-import {getCrewData, Crew, getCrew} from '../../resources/dataFetch';
+import {getCrewData, Crew, getCrew} from '../../lib/dataFetch';
 import {kebabCase} from '../../lib/utils';
-import Nav from '../../components/Nav';
+import Nav from '../../components/Header';
 import Link from 'next/link';
 import Image from 'next/image';
 import anoushehAnsari from '../../public/assets/crew/image-anousheh-ansari.png';

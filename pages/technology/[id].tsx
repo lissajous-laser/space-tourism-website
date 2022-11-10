@@ -1,8 +1,8 @@
-import {getTechnologiesData, Technology, getTechnology} from '../../resources/dataFetch';
+import {getTechnologiesData, Technology, getTechnology} from '../../lib/dataFetch';
 import {kebabCase} from '../../lib/utils';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
-import Nav from '../../components/Nav';
+import Nav from '../../components/Header';
 
 export default function TechnologyPage(
     {technology}: {technology: Technology | null}

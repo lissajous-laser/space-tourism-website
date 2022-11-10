@@ -1,5 +1,5 @@
-import data from './data.json';
-import { kebabCase } from '../lib/utils';
+import data from '../public/data.json';
+import { kebabCase } from './utils';
 
 export type Destination = {
   name: string,

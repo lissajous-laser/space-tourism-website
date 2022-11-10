@@ -1,0 +1,62 @@
+$darkNavy: rgb(11, 13, 25);
+$lightBlue: rgb(208, 214, 249);
+
+.heading1 {
+  color: white;
+  font-size: 150px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.heading2 {
+  color: white;
+  font-size: 100px;
+  text-transform: uppercase;
+}
+
+.heading3 {
+  color: white;
+  font-size: 56px;
+  text-transform: uppercase;
+}
+
+.heading4 {
+  color: white;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+.heading5 {
+  color: $lightBlue;
+  font-size: 28px;
+  letter-spacing: 4.75px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.subheading1 {
+  color: white;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.subheading2 {
+  color: white;
+  font-size: 14px;
+  letter-spacing: 2.35px;
+  text-transform: uppercase;
+}
+
+.navText {
+  color: white;
+  font-size: 16px;
+  letter-spacing: 2.7px;
+  text-transform: uppercase;
+}
+
+.bodyText {
+  color: $lightBlue;
+  font-size: 18px;
+  line-height: 32px;
+}
+

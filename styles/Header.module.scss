@@ -1,0 +1,64 @@
+@use 'design-system';
+
+$lightBlue: rgb(208, 214, 249);
+
+.nav {
+  width: 77.1%;
+  height: 100%;
+  // border: 1px solid green;
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+}
+
+.header {
+  // width: 1385px;
+  width: 100%;
+  height: 96px;
+  display: flex;
+  // border: 1px solid orange;
+  position: relative;
+}
+
+.ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  list-style-type: none;
+  gap: 48px;
+  text-transform: uppercase;
+  letter-spacing: 2.7px;
+  // border: 1px solid pink;
+  height: 100%;
+}
+
+.index {
+  padding-right: 10px;
+}
+
+.logoContainer {
+  width: 11.45%;
+  display: grid;
+  place-items: center;
+}
+
+.line {
+  height: 1px;
+  width: calc(100% - 630px);
+  position: absolute;
+  background-color: white;
+  top: calc(100% / 2);
+  left: 0;
+  opacity: 0.25;
+}
+
+.frosted {
+  position: absolute;
+  // background-color: green;
+  background-color: grey;
+  opacity: 0.4;
+  backdrop-filter: blur(25px);
+  right: 0;
+  height: 100%;
+  width: calc(11.45% + 665px);
+}

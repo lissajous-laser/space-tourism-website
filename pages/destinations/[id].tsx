@@ -1,6 +1,6 @@
-import {getDestinationsData, Destination, getDestination} from '../../resources/dataFetch'
+import {getDestinationsData, Destination, getDestination} from '../../lib/dataFetch'
 import {kebabCase} from '../../lib/utils';
-import Nav from '../../components/Nav';
+import Nav from '../../components/Header';
 import Link from 'next/link';
 import Image from 'next/image';
 
