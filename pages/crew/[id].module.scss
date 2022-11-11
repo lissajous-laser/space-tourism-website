@@ -1,0 +1,85 @@
+@use '../../styles/design-system.scss';
+
+$blueish-grey: rgb(78, 80, 88);
+$grey: rgb(143, 144, 149);
+// $lightBlue: rgb(208, 214, 249);
+$darkNavy: rgb(11, 13, 25);
+
+.background {
+  background-image: linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)), url('../../public/assets/crew/background-crew-desktop.jpg');
+}
+
+.xPadding {
+  width: 88.5%;
+  // border: 1px solid grey;
+}
+
+.yPadding {
+  padding-top: 40px;
+  position: relative;
+  padding-bottom: 76px;
+  max-height: 900px;
+}
+
+.index {
+  @extend .heading5;
+  color: $blueish-grey;
+  margin-right: 24px;
+}
+
+.heading5White {
+  @extend .heading5;
+  color: white;
+  margin-top: 76px;
+  margin-bottom: 24px;
+}
+
+.rightAlign {
+  display: flex;
+  flex-direction: row-reverse;
+  // border: 1px solid blue;
+}
+
+.textAndSubnav {
+  margin-top: 152px;
+}
+
+.role {
+  @extend .heading4;
+  color: $grey;
+  margin-bottom: 0;
+}
+
+.bodyTextExt {
+  @extend .bodyText;
+  width: 444px;
+  height:251px;
+}
+
+.circle {
+  width: 15px;
+  height: 15px;
+  background-color: scale-color(white, $alpha: -83%);
+  border-radius: 9999px;
+}
+
+.subnav {
+  list-style-type: none;
+  padding-inline-start: 0;
+  // border: 1px solid brown;
+  display: flex;
+  gap: 24px;
+}
+
+.heading3Ext {
+  @extend .heading3;
+  margin-top: 16px;
+  margin-bottom: 26px;
+}
+
+.img {
+  position: absolute;
+  bottom: 0;
+  left: 71%;
+  transform: translate(-50%, 0);
+}

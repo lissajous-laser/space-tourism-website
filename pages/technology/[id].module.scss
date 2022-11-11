@@ -1,0 +1,106 @@
+@use '../../styles/design-system.scss';
+
+$blueish-grey: rgb(78, 80, 88);
+$darkNavy: rgb(11, 13, 25);
+$lightBlue: rgb(208, 214, 249);
+
+.background {
+  background-image: linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)), url('../../public/assets/technology/background-technology-desktop.jpg');
+}
+
+.xPadding {
+  width: 88.5%;
+  // border: 1px solid grey;
+}
+
+.yPadding {
+  padding-top: 40px;
+  padding-bottom: 103px;
+}
+
+.heading5White {
+  @extend .heading5;
+  color: white;
+  margin-top: 76px;
+  margin-bottom: 24px;
+}
+
+.index {
+  @extend .heading5;
+  color: $blueish-grey;
+  margin-right: 24px;
+}
+
+.subnav {
+  list-style-type: none;
+  padding-inline-start: 0;
+  // border: 1px solid brown;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-self: flex-start;
+  margin: 0;
+}
+
+.circle {
+  @extend .heading4;
+  width: 80px;
+  height: 80px;
+  border-radius: 9999px;
+  border: 1px solid scale-color($lightBlue, $alpha: -75%);
+  display: grid;
+  place-items: center;
+}
+
+
+.circle:active {
+  @extend .circle;
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  color: $darkNavy;
+}
+
+.rightAlign {
+  display: flex;
+  flex-direction: row-reverse;
+  // border: 1px solid blue;
+}
+
+.imgTextSubnav {
+  display: flex;
+  // border: 1px solid purple;
+}
+
+.textAndSubnav {
+  display: flex;
+  // border: 1px solid pink;
+  margin-top: 112px
+}
+
+.navTextExt {
+  @extend .navText;
+  color: $lightBlue;
+}
+
+.text {
+  width: 470px;
+  margin-left: 80px;
+  margin-right: 130px;
+  // border: 1px solid yellow;
+}
+
+.heading3Ext {
+  @extend .heading3;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.bodyTextExt {
+  @extend .bodyText;
+  margin-top: 15px;
+  width: 444px;
+}

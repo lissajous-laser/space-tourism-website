@@ -39,7 +39,7 @@ export default function DestinationPage(
                   {getDestinationsData().map((x) => (
                     <li 
                       key={x.name}
-                      className={join(barlowCondensed.className, styles.navText)}
+                      className={join(barlowCondensed.className, styles.navTextExt)}
                     >
                       <Link href={`/destinations/${kebabCase(x.name)}`}>
                         {x.name}

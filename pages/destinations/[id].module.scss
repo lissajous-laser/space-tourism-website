@@ -11,7 +11,7 @@ $lightBlue: rgb(208, 214, 249);
 
 .yPadding {
   padding-top: 40px;
-  padding-bottom: 130px;
+  padding-bottom: 109px;
 }
 
 .heading5White {
@@ -28,7 +28,7 @@ $lightBlue: rgb(208, 214, 249);
 }
 
 .background {
-  background-image: url('../../public/assets/destination/background-destination-desktop.jpg');
+  background-image: linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)), url('../../public/assets/destination/background-destination-desktop.jpg');
 }
 
 .imageAndText {
@@ -81,4 +81,9 @@ $lightBlue: rgb(208, 214, 249);
 .attrLeft {
   @extend .attr;
   width: 221px;
+}
+
+.navTextExt {
+  @extend .navText;
+  color: $lightBlue;
 }

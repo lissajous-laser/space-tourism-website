@@ -1,8 +1,10 @@
 import {getTechnologiesData, Technology, getTechnology} from '../../lib/dataFetch';
-import {kebabCase} from '../../lib/utils';
+import {join, kebabCase} from '../../lib/utils';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import Nav from '../../components/Header';
+import styles from './[id].module.scss';
+import {barlow, barlowCondensed,barlowCondensedB, bellefair} from '../../lib/fonts';
 
 export default function TechnologyPage(
     {technology}: {technology: Technology | null}
@@ -10,25 +12,56 @@ export default function TechnologyPage(
 
   if (technology !== null) {
     return (
-      <div>
-        <Nav/>
-        <ul>
-          {getTechnologiesData().map((x) => (
-            <li key={x.name}>
-              <Link href={`/technology/${kebabCase(x.name)}`}>
-                {x.name}
-              </Link>
-            </li>            
-          ))}
-        </ul>
-        <h2>{technology.name}</h2>
-        <p>{technology.description}</p>
-        <Image
-          src={technology.images.portrait.substring(1)}
-          width={515}
-          height={527}
-          alt={technology.name}
-        />
+      <div className={styles.background}>
+        <div className={styles.yPadding}>
+          <Nav/>
+
+            <div className={styles.rightAlign}>
+              <div className={styles.xPadding}>
+                <h5
+                  className={join(styles.heading5White, barlowCondensed.className)}
+                >
+                  <span className={join(styles.index, barlowCondensedB.className)}>
+                    03
+                  </span>
+                  SPACE LAUNCH 101
+                </h5>
+                <div className={styles.imgTextSubnav}>
+                  <div className={styles.textAndSubnav}>
+                    <ul className={styles.subnav}>
+                      {getTechnologiesData().map((x, idx) => (
+                        <li key={x.name}>
+                          <Link href={`/technology/${kebabCase(x.name)}`}>
+                            <div className={join(styles.circle, bellefair.className)} >
+                              {idx + 1}
+                            </div>
+
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className={styles.text}>
+                      <div
+                        className={join(styles.navTextExt, barlowCondensed.className)}
+                      >
+                        THE TERMINOLOGY...
+                      </div>
+                      <h3 className={join(styles.heading3Ext, bellefair.className)}>
+                        {technology.name}
+                      </h3>
+                      <p className={join(styles.bodyTextExt, barlow.className  )}>{technology.description}</p>
+                    </div>
+                  </div>
+                  <Image
+                    src={technology.images.portrait.substring(1)}
+                    width={515}
+                    height={527}
+                    alt={technology.name}
+                  />
+                </div>
+              </div>
+            </div>
+        </div>
       </div>
     );
   } else {
