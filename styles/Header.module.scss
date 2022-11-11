@@ -46,17 +46,17 @@ $lightBlue: rgb(208, 214, 249);
   height: 1px;
   width: calc(100% - 630px);
   position: absolute;
-  background-color: white;
+  background-color: grey;
   top: calc(100% / 2);
   left: 0;
-  opacity: 0.25;
+  opacity: 0.20;
 }
 
 .frosted {
   position: absolute;
   // background-color: green;
   background-color: grey;
-  opacity: 0.4;
+  opacity: 0.2;
   backdrop-filter: blur(25px);
   right: 0;
   height: 100%;

@@ -1,0 +1,84 @@
+@use '../../styles/design-system.scss';
+@use 'sass:color';
+
+$blueish-grey: rgb(78, 80, 88);
+$lightBlue: rgb(208, 214, 249);
+
+.xPadding {
+  width: 77.1%;
+  margin: 0 auto;
+}
+
+.yPadding {
+  padding-top: 40px;
+  padding-bottom: 130px;
+}
+
+.heading5White {
+  @extend .heading5;
+  color: white;
+  margin-top: 76px;
+  margin-bottom: 48px;
+}
+
+.index {
+  @extend .heading5;
+  color: $blueish-grey;
+  margin-right: 24px;
+}
+
+.background {
+  background-image: url('../../public/assets/destination/background-destination-desktop.jpg');
+}
+
+.imageAndText {
+  display: flex;
+  justify-content: space-between;
+  // border: 1px solid pink;
+}
+
+.text {
+  width: 445px;
+}
+
+.imgContainer {
+  margin-left: 5.9%;
+  margin-right: 5.9%;
+  margin-top: 48px;
+}
+
+.ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+  display: flex;
+  gap: 33px;
+}
+
+.heading2Ext {
+  @extend .heading2;
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+
+.bodyTextExt {
+  @extend .bodyText;
+  margin-top: 16px;
+  margin-bottom: 54px;
+}
+
+.stats {
+  display: flex;
+  border-top: 1px solid scale-color($lightBlue, $alpha: -75%);
+  padding-top: 5px;
+}
+
+.attr {
+  @extend .subheading2;
+  color: $lightBlue;
+  margin-bottom: 12px;
+}
+
+.attrLeft {
+  @extend .attr;
+  width: 221px;
+}

@@ -1,8 +1,11 @@
 import {getDestinationsData, Destination, getDestination} from '../../lib/dataFetch'
-import {kebabCase} from '../../lib/utils';
+import {join, kebabCase} from '../../lib/utils';
 import Nav from '../../components/Header';
 import Link from 'next/link';
 import Image from 'next/image';
+import styles from './[id].module.scss';
+import {barlow, barlowCondensed, barlowCondensedB, bellefair} from '../../lib/fonts';
+
 
 export default function DestinationPage(
     {destination}: {destination: Destination | null}
@@ -10,27 +13,76 @@ export default function DestinationPage(
 
   if (destination !== null) {
     return (
-      <div>
-        <Nav/>
-        <Image
-          src={destination.images.png.substring(1)}
-          width={445}
-          height={445}
-          alt={destination.name}
-        />
-        <ul>
-          {getDestinationsData().map((x) => (
-            <li key={x.name}>
-              <Link href={`/destinations/${kebabCase(x.name)}`}>
-                {x.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <h2>{destination.name}</h2>
-        <p>{destination.description}</p>
-        <div>{destination.distance}</div>
-        <div>{destination.travel}</div>
+      <div className={styles.background}>
+        <div className={styles.yPadding}>
+          <Nav/>
+          <div className={styles.xPadding}>
+            <h5
+              className={join(styles.heading5White, barlowCondensed.className)}
+            >
+              <span className={join(styles.index, barlowCondensedB.className)}>
+                01
+              </span>
+              PICK YOUR DESTINATION
+            </h5>
+            <div className={styles.imageAndText}>
+              <div className={styles.imgContainer}>
+                <Image
+                  src={destination.images.png.substring(1)}
+                  width={445}
+                  height={445}
+                  alt={destination.name}
+                />
+              </div>
+              <div className={styles.text}>
+                <ul className={styles.ul}>
+                  {getDestinationsData().map((x) => (
+                    <li 
+                      key={x.name}
+                      className={join(barlowCondensed.className, styles.navText)}
+                    >
+                      <Link href={`/destinations/${kebabCase(x.name)}`}>
+                        {x.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <h2 className={join(bellefair.className, styles.heading2Ext)}>
+                  {destination.name}
+                </h2>
+                <p className={join(styles.bodyTextExt, barlow.className)}>
+                  {destination.description}
+                </p>
+                <div className={styles.stats}>
+                  <div>
+                    <h5
+                      className={join(styles.attrLeft, barlowCondensed.className)}
+                    >
+                      AVG. DISTANCE
+                    </h5>
+                    <div
+                      className={join(styles.subheading1, bellefair.className)}
+                    >
+                      {destination.distance}
+                    </div>
+                  </div>
+                  <div>
+                    <h5
+                      className={join(styles.attr, barlowCondensed.className)}
+                    >
+                      EST. TRAVEL TIME
+                    </h5>
+                    <div
+                      className={join(styles.subheading1, bellefair.className)}
+                    >
+                      {destination.travel}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   } else {
