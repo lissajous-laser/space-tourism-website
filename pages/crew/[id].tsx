@@ -1,6 +1,6 @@
 import {getCrewData, Crew, getCrew} from '../../lib/dataFetch';
 import {join, kebabCase} from '../../lib/utils';
-import Nav from '../../components/Header';
+import Header from '../../components/Header';
 import Link from 'next/link';
 import Image from 'next/image';
 import anoushehAnsari from '../../public/assets/crew/image-anousheh-ansari.png';
@@ -30,41 +30,43 @@ export default function CrewPage({crew}: {crew: Crew | null}) {
 
   if (crew !== null) {
     return (
-      <div className={styles.background}>
-        <div className={styles.yPadding}>
-          <Nav/>
-          <div className={styles.rightAlign}>
-            <div className={styles.xPadding}>
-              <h5
-                className={join(styles.heading5White, barlowCondensed.className)}
-              >
-                <span className={join(styles.index, barlowCondensedB.className)}>
-                  02
-                </span>
-                MEET YOUR CREW
-              </h5>
-              <div>
-                <div className={styles.textAndSubnav}>
-                  <h4 className={join(styles.role, bellefair.className)}>{crew.role}</h4>
-                  <h3 className={join(styles.heading3Ext, bellefair.className)}>{crew.name}</h3>
-                  <p className={join(styles.bodyTextExt, barlow.className)}>{crew.bio}</p>
-                  <ul className={styles.subnav}>
-                    {getCrewData().map((x) => (
-                      <li key={x.name}>
-                        <Link href={`/crew/${kebabCase(x.name)}`}>
-                          <div className={styles.circle}></div>
-                        </Link>
-                      </li>            
-                    ))}
-                  </ul>
+      <div className={styles.canvas}>
+        <div className={styles.background}>
+          <div className={styles.yPadding}>
+            <Header/>
+            <div className={styles.rightAlign}>
+              <div className={styles.xPadding}>
+                <h5
+                  className={join(styles.heading5White, barlowCondensed.className)}
+                >
+                  <span className={join(styles.index, barlowCondensedB.className)}>
+                    02
+                  </span>
+                  MEET YOUR CREW
+                </h5>
+                <div>
+                  <div className={styles.textAndSubnav}>
+                    <h4 className={join(styles.role, bellefair.className)}>{crew.role}</h4>
+                    <h3 className={join(styles.heading3Ext, bellefair.className)}>{crew.name}</h3>
+                    <p className={join(styles.bodyTextExt, barlow.className)}>{crew.bio}</p>
+                    <ul className={styles.subnav}>
+                      {getCrewData().map((x) => (
+                        <li key={x.name}>
+                          <Link href={`/crew/${kebabCase(x.name)}`}>
+                            <div className={styles.circle}></div>
+                          </Link>
+                        </li>            
+                      ))}
+                    </ul>
+                  </div>
+                  <Image
+                    className={styles.img}
+                    src={selectImage()}
+                    alt={crew.name}
+                  />
                 </div>
-                <Image
-                  className={styles.img}
-                  src={selectImage()}
-                  alt={crew.name}
-                />
-              </div>
 
+              </div>
             </div>
           </div>
         </div>

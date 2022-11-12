@@ -1,12 +1,30 @@
 import Link from 'next/link';
 import { getFirstPageNameForEachNavItem } from '../lib/dataFetch';
-import { kebabCase } from '../lib/utils';
+import { join, kebabCase } from '../lib/utils';
 import styles from '../styles/Header.module.scss';
 import {barlowCondensed, barlowCondensedB} from '../lib/fonts';
 import logo from '../public/assets/shared/logo.svg';
 import Image from 'next/image';
+import { break1280 } from '../lib/constants';
+import { useEffect, useState } from 'react';
 
-export default function Nav() {
+export default function Header() {
+  const [winWidth, setWinWidth] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener(
+      'resize',
+      () => {setWinWidth(window.innerWidth)}
+    );
+    return () => {
+      window.removeEventListener(
+        'resize',
+        () => setWinWidth(window.innerWidth)
+              
+      );
+    }
+  }, []);
+
   const pageNameForEachNavItem = getFirstPageNameForEachNavItem();
 
   return (
@@ -20,7 +38,7 @@ export default function Nav() {
         <ul className={styles.ul}>
           <li >
             <Link href='/'>
-              <span className={barlowCondensedB.className + ' ' + styles.index}>00</span>
+              <Index winWidth={winWidth}>00</Index>
               Home
             </Link>
           </li>
@@ -28,7 +46,7 @@ export default function Nav() {
             <Link
               href={`/destinations/${kebabCase(pageNameForEachNavItem.destination)}`}
             >
-              <span className={barlowCondensedB.className + ' ' + styles.index}>01</span>
+              <Index winWidth={winWidth}>01</Index>
                 Destination
             </Link>
           </li>
@@ -36,7 +54,7 @@ export default function Nav() {
             <Link 
               href={`/crew/${kebabCase(pageNameForEachNavItem.crew)}`}
             >
-              <span className={barlowCondensedB.className + ' ' + styles.index}>02</span>
+              <Index winWidth={winWidth}>02</Index>
                 Crew
             </Link>
           </li>
@@ -45,7 +63,7 @@ export default function Nav() {
               className={barlowCondensed.className}
               href={`/technology/${kebabCase(pageNameForEachNavItem.technology)}`}
             >
-              <span className={barlowCondensedB.className + ' ' + styles.index}>03</span>
+              <Index winWidth={winWidth}>03</Index>
               Technology
             </Link>
           </li>
@@ -53,4 +71,16 @@ export default function Nav() {
       </nav>
     </header>
   );
+}
+
+function Index({children, winWidth}: {children: string, winWidth: number}) {
+  if (winWidth > break1280) {
+    return (
+      <span className={barlowCondensedB.className + ' ' + styles.index}>
+        {children}
+      </span>
+    );
+  } else {
+    return <></>;
+  }
 }

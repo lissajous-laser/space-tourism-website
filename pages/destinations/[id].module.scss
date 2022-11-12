@@ -3,6 +3,7 @@
 
 $blueish-grey: rgb(78, 80, 88);
 $lightBlue: rgb(208, 214, 249);
+$darkNavy: rgb(11, 13, 25);
 
 .xPadding {
   width: 77.1%;
@@ -28,7 +29,12 @@ $lightBlue: rgb(208, 214, 249);
 }
 
 .background {
-  background-image: linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)), url('../../public/assets/destination/background-destination-desktop.jpg');
+  background-image: 
+    linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)),
+    url('../../public/assets/destination/background-destination-desktop.jpg');
+  background-repeat: no-repeat;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .imageAndText {
@@ -86,4 +92,9 @@ $lightBlue: rgb(208, 214, 249);
 .navTextExt {
   @extend .navText;
   color: $lightBlue;
+}
+
+.canvas {
+  background-color: $darkNavy;
+  height: 100vh;
 }

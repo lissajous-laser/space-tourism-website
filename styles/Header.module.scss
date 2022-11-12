@@ -21,13 +21,13 @@ $lightBlue: rgb(208, 214, 249);
 }
 
 .ul {
+  @extend .navText;
   display: flex;
   align-items: center;
   margin: 0;
   list-style-type: none;
   gap: 48px;
   text-transform: uppercase;
-  letter-spacing: 2.7px;
   // border: 1px solid pink;
   height: 100%;
 }
@@ -46,19 +46,45 @@ $lightBlue: rgb(208, 214, 249);
   height: 1px;
   width: calc(100% - 630px);
   position: absolute;
-  background-color: grey;
+  background-color: white;
   top: calc(100% / 2);
   left: 0;
-  opacity: 0.20;
+  opacity: 0.25;
 }
 
 .frosted {
   position: absolute;
   // background-color: green;
-  background-color: grey;
-  opacity: 0.2;
-  backdrop-filter: blur(25px);
+  background-color: white;
+  opacity: 0.04;
+  backdrop-filter: blur(20px);
   right: 0;
   height: 100%;
-  width: calc(11.45% + 665px);
+
+  // z-index: 20;
+}
+
+@media (min-width: 1280px) {
+  .frosted {
+    width: calc(11.45% + 665px);
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1279px) {
+  .frosted {
+    width: calc(11.45% + 362px);
+  }
+
+  .logoContainer {
+    width: 16.4%;
+  }
+
+  .ul {
+    @include design-system.navTextTablet;
+    gap: 36px;
+  }
+
+  .line {
+    opacity: 0;
+  }
 }

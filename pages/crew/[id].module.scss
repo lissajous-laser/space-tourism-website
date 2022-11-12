@@ -5,8 +5,26 @@ $grey: rgb(143, 144, 149);
 // $lightBlue: rgb(208, 214, 249);
 $darkNavy: rgb(11, 13, 25);
 
+@media screen and (max-width: 1440px) {
+  .img {
+    left: 71%;
+  }
+}
+
+@media screen and (min-width: 1441px) {
+  .img {
+    left: 1022px;
+  }
+}
+
+
 .background {
-  background-image: linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)), url('../../public/assets/crew/background-crew-desktop.jpg');
+  background-image: 
+    linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)),
+    url('../../public/assets/crew/background-crew-desktop.jpg');
+  background-repeat: no-repeat;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .xPadding {
@@ -80,6 +98,10 @@ $darkNavy: rgb(11, 13, 25);
 .img {
   position: absolute;
   bottom: 0;
-  left: 71%;
   transform: translate(-50%, 0);
+}
+
+.canvas {
+  background-color: $darkNavy;
+  height: 100vh;
 }

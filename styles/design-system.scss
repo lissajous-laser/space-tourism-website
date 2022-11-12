@@ -59,3 +59,24 @@ $lightBlue: rgb(208, 214, 249);
   font-size: 18px;
   line-height: 32px;
 }
+
+@mixin bodyTextTablet {
+  color: $lightBlue;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+@mixin heading5Tablet {
+  color: $lightBlue;
+  font-size: 20px;
+  letter-spacing:3.38px;
+  text-transform: uppercase;
+  margin: 0;  
+}
+
+@mixin navTextTablet {
+  color: white;
+  font-size: 14px;
+  letter-spacing: 2.36px;
+  text-transform: uppercase;
+}
