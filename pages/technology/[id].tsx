@@ -5,29 +5,78 @@ import Link from 'next/link';
 import Header from '../../components/Header';
 import styles from './[id].module.scss';
 import {barlow, barlowCondensed,barlowCondensedB, bellefair} from '../../lib/fonts';
+import { useEffect, useState } from 'react';
+import { break1280 } from '../../lib/constants';
 
 export default function TechnologyPage(
     {technology}: {technology: Technology | null}
   ) {
 
+  const [winWidth, setWinWidth] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener(
+      'resize',
+      () => setWinWidth(window.innerWidth)
+    );
+    return () => {
+      window.removeEventListener(
+        'resize',
+        () => setWinWidth(window.innerWidth)
+      );
+    }
+  });
+
   if (technology !== null) {
+    // Function to render image in portrait.
+    const renderPortraitImg = () => {
+      if (winWidth > break1280) {
+        return (
+          <Image
+            src={technology.images.portrait.substring(1)}
+            width={515}
+            height={527}
+            alt={technology.name}
+          />
+        );
+      } else {
+        return <></>;
+      }
+    }
+    // Function to render image in landscape.
+    const renderLandscapeImg = () => {
+      if (winWidth < break1280) {
+        return (
+          <Image
+            className={styles.img}
+            src={technology.images.landscape.substring(1)}
+            width={768}
+            height={310}
+            alt={technology.name}
+          />
+        );
+      } else {
+        return <></>;
+      }
+    }
+
     return (
       <div className={styles.canvas}>
         <div className={styles.background}>
           <div className={styles.yPadding}>
             <Header/>
-
+              <h5
+                className={join(styles.heading5White, barlowCondensed.className)}
+              >
+                <span className={join(styles.index, barlowCondensedB.className)}>
+                  03
+                </span>
+                SPACE LAUNCH 101
+              </h5>
               <div className={styles.rightAlign}>
                 <div className={styles.xPadding}>
-                  <h5
-                    className={join(styles.heading5White, barlowCondensed.className)}
-                  >
-                    <span className={join(styles.index, barlowCondensedB.className)}>
-                      03
-                    </span>
-                    SPACE LAUNCH 101
-                  </h5>
                   <div className={styles.imgTextSubnav}>
+                    {renderLandscapeImg()}
                     <div className={styles.textAndSubnav}>
                       <ul className={styles.subnav}>
                         {getTechnologiesData().map((x, idx) => (
@@ -53,12 +102,7 @@ export default function TechnologyPage(
                         <p className={join(styles.bodyTextExt, barlow.className  )}>{technology.description}</p>
                       </div>
                     </div>
-                    <Image
-                      src={technology.images.portrait.substring(1)}
-                      width={515}
-                      height={527}
-                      alt={technology.name}
-                    />
+                    {renderPortraitImg()}
                   </div>
                 </div>
               </div>
@@ -88,3 +132,4 @@ export function getStaticPaths() {
     fallback: false,
   };
 }
+

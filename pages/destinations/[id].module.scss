@@ -12,19 +12,21 @@ $darkNavy: rgb(11, 13, 25);
 
 .yPadding {
   padding-top: 40px;
-  // height: 1000px;
+  padding-bottom: 109px;
 }
 
 .heading5White {
   @extend .heading5;
   color: white;
   margin: 76px auto 48px;
+  width: 77.1%;
 }
 
 .index {
   @extend .heading5;
   color: $blueish-grey;
-  margin-right: 24px;
+  width: 52px;
+  display: inline-block;
 }
 
 .background {
@@ -94,22 +96,19 @@ $darkNavy: rgb(11, 13, 25);
 }
 
 .canvas {
-  // background-color: $darkNavy;
+  background-color: $darkNavy;
   height: 100vh;
 }
 
 @media (min-width: 1280px) {
-  .heading5White {
-    width: 77.1%;
-  }
+
 }
 
 
 @media (min-width: 600px) and (max-width: 1279px) {
   .background {
-    background-image: 
-      linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)),
-      url('../../public/assets/destination/background-destination-tablet.jpg');
+    height: 1024px;
+    background-size: cover;
   }
 
   .yPadding {
@@ -132,6 +131,7 @@ $darkNavy: rgb(11, 13, 25);
   .index {
     @include design-system.heading5Tablet;
     color: $blueish-grey;
+    width: 36px;
   }
 
   .img {
@@ -176,4 +176,13 @@ $darkNavy: rgb(11, 13, 25);
     width: auto;
   };
 
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+  .background {
+    background-image: 
+      linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)),
+      url('../../public/assets/destination/background-destination-tablet.jpg');
+    background-position-x: 50%;    
+  }
 }

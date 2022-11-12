@@ -2,7 +2,10 @@
 
 $darkNavy: rgb(11, 13, 25);
 
+
 .background {
+  background-image: url('../public/assets/home/background-home-desktop.jpg');
+  background-position-x: 50%;
   background-repeat: no-repeat;
   margin: 0 auto;
   // height: 100%;
@@ -113,11 +116,7 @@ $darkNavy: rgb(11, 13, 25);
 }
 
 @media (min-width: 769px) {
-  .background {
-    background-image: url('../public/assets/home/background-home-desktop.jpg');
-    background-position-x: 50%;
-    // background-size: cover;
-  }
+
 }
 
 @media (min-width: 376px) and (max-width: 768px) {

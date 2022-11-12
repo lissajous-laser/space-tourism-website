@@ -26,14 +26,15 @@ $lightBlue: rgb(208, 214, 249);
 .heading5White {
   @extend .heading5;
   color: white;
-  margin-top: 76px;
-  margin-bottom: 24px;
+  margin: 76px auto 24px;
+  width: 77.1%;
 }
 
 .index {
   @extend .heading5;
   color: $blueish-grey;
-  margin-right: 24px;
+  width: 52px;
+  display: inline-block;
 }
 
 .subnav {
@@ -84,7 +85,10 @@ $lightBlue: rgb(208, 214, 249);
 .textAndSubnav {
   display: flex;
   // border: 1px solid pink;
-  margin-top: 112px
+  margin-top: 112px;
+  width: 49.5%;
+  gap: 48px; // is really the minium gap, dictacted by space-between
+  justify-content: space-between;
 }
 
 .navTextExt {
@@ -94,7 +98,7 @@ $lightBlue: rgb(208, 214, 249);
 
 .text {
   width: 470px;
-  margin-left: 80px;
+  // margin-left: 80px;
   // margin-right: 130px;
 
   // border: 1px solid yellow;
@@ -115,4 +119,92 @@ $lightBlue: rgb(208, 214, 249);
 .canvas {
   background-color: $darkNavy;
   height: 100vh;
+}
+
+@media (min-width: 600px) and (max-width: 1279px) {
+  .background {
+    height: 1024px;
+    background-size: cover;
+  }
+
+  .yPadding {
+    padding-top: 0;
+  }
+
+  .rightAlign {
+    display: block;
+  }
+
+  .xPadding {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .heading5White {
+    @include design-system.heading5Tablet;
+    color: white;
+    margin: 40px 0 0;
+    padding-left: calc(8.2% - 24px);
+  }
+
+  .index {
+    @include design-system.heading5Tablet;
+    color: $blueish-grey;
+    width: 36px;
+  }
+
+  .imgTextSubnav {
+    display: block;
+    margin: 60px auto 0;
+    // border: 1px solid purple;
+  }
+
+  .textAndSubnav {
+    display: block;
+    margin: 52px auto 0;
+    width: 100%;
+  }
+
+  .subnav {
+    flex-direction: row;
+    margin: 0 auto;
+    // border: 2px solid green;
+    justify-content: center;
+    gap: 16px;
+    // border: 1px solid yellow;
+  }
+
+  .circle {
+    @include design-system.circleTextTablet;
+    width: 60px;
+    height: 60px;
+  }
+
+  .img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 768px;
+    object-fit: cover;
+  }
+
+  .text {
+    text-align: center;
+    margin: 0 auto;
+    // border: 1px solid blue;
+  }
+
+  .navTextExt {
+    margin-top: 46px;
+  }
+
+  .heading3Ext {
+    @include design-system.heading3Tablet;
+    margin-top: 16px;
+  }
+
+  .bodyTextExt {
+    @include design-system.bodyTextTablet;
+
+  }
 }

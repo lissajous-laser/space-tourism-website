@@ -86,3 +86,14 @@ $lightBlue: rgb(208, 214, 249);
   font-size: 80px;
   text-transform: uppercase;
 }
+
+@mixin circleTextTablet {
+  color: white;
+  font-size: 24px;
+}
+
+@mixin heading3Tablet {
+  color: white;
+  font-size: 40px;
+  text-transform: uppercase;
+}
