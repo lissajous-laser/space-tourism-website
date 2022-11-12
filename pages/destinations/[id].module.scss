@@ -12,14 +12,13 @@ $darkNavy: rgb(11, 13, 25);
 
 .yPadding {
   padding-top: 40px;
-  padding-bottom: 109px;
+  // height: 1000px;
 }
 
 .heading5White {
   @extend .heading5;
   color: white;
-  margin-top: 76px;
-  margin-bottom: 48px;
+  margin: 76px auto 48px;
 }
 
 .index {
@@ -95,6 +94,86 @@ $darkNavy: rgb(11, 13, 25);
 }
 
 .canvas {
-  background-color: $darkNavy;
+  // background-color: $darkNavy;
   height: 100vh;
+}
+
+@media (min-width: 1280px) {
+  .heading5White {
+    width: 77.1%;
+  }
+}
+
+
+@media (min-width: 600px) and (max-width: 1279px) {
+  .background {
+    background-image: 
+      linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)),
+      url('../../public/assets/destination/background-destination-tablet.jpg');
+  }
+
+  .yPadding {
+    padding-top: 0;
+    padding-bottom: 60px;
+    // margin-bottom: 32px;
+  }
+
+  .imageAndText {
+    display: block;
+  }
+
+  .heading5White {
+    @include design-system.heading5Tablet;
+    color: white;
+    margin: 40px 0 60px;
+    padding-left: calc(8.2% - 24px);
+  }
+
+  .index {
+    @include design-system.heading5Tablet;
+    color: $blueish-grey;
+  }
+
+  .img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .imgContainer {
+    display: grid;
+    place-items: center;
+  }
+
+  .text {
+    margin: 50px auto 0;
+    width: 573px;
+    text-align: center;
+
+  }
+
+  .heading2Ext {
+    @include design-system.heading2Tablet;
+    margin-top: 48px;
+  }
+
+  .bodyTextExt {
+    @include design-system.bodyTextTablet;
+    margin-top: 4px;
+  }
+
+  .ul {
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .stats {
+    justify-content: center;
+    // justify-items: stretch;
+    gap: 104px;
+  }
+  
+  .attrLeft {
+    width: auto;
+  };
+
 }

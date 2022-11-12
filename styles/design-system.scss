@@ -80,3 +80,9 @@ $lightBlue: rgb(208, 214, 249);
   letter-spacing: 2.36px;
   text-transform: uppercase;
 }
+
+@mixin heading2Tablet {
+  color: white;
+  font-size: 80px;
+  text-transform: uppercase;
+}

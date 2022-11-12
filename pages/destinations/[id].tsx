@@ -17,18 +17,20 @@ export default function DestinationPage(
         <div className={styles.background}>
           <div className={styles.yPadding}>
             <Header/>
+            <h5
+              className={join(styles.heading5White, barlowCondensed.className)}
+            >
+              <span className={join(styles.index, barlowCondensedB.className)}>
+                01
+              </span>
+              PICK YOUR DESTINATION
+            </h5>
             <div className={styles.xPadding}>
-              <h5
-                className={join(styles.heading5White, barlowCondensed.className)}
-              >
-                <span className={join(styles.index, barlowCondensedB.className)}>
-                  01
-                </span>
-                PICK YOUR DESTINATION
-              </h5>
+
               <div className={styles.imageAndText}>
                 <div className={styles.imgContainer}>
                   <Image
+                    className={styles.img}
                     src={destination.images.png.substring(1)}
                     width={445}
                     height={445}

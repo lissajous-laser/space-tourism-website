@@ -6,7 +6,7 @@ import {barlowCondensed, barlowCondensedB} from '../lib/fonts';
 import logo from '../public/assets/shared/logo.svg';
 import Image from 'next/image';
 import { break1280 } from '../lib/constants';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 
 export default function Header() {
   const [winWidth, setWinWidth] = useState(0);
