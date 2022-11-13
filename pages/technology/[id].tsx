@@ -33,7 +33,7 @@ export default function TechnologyPage(
   if (technology !== null) {
     // Function to render image in portrait.
     const renderPortraitImg = () => {
-      if (winWidth > break1280) {
+      if (winWidth >= break1280) {
         return (
           <Image
             src={technology.images.portrait.substring(1)}

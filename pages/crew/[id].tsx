@@ -49,7 +49,7 @@ export default function CrewPage({crew}: {crew: Crew | null}) {
                     <h4 className={join(styles.role, bellefair.className)}>{crew.role}</h4>
                     <h3 className={join(styles.heading3Ext, bellefair.className)}>{crew.name}</h3>
                     <p className={join(styles.bodyTextExt, barlow.className)}>{crew.bio}</p>
-                    <ul className={styles.subnav}>
+                  <ul className={styles.subnav}>
                       {getCrewData().map((x) => (
                         <li key={x.name}>
                           <Link href={`/crew/${kebabCase(x.name)}`}>

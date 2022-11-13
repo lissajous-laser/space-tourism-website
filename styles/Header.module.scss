@@ -64,6 +64,13 @@ $lightBlue: rgb(208, 214, 249);
   // z-index: 20;
 }
 
+.burger {
+  padding: 0;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+
 @media (min-width: 1280px) {
   .frosted {
     width: calc(11.45% + 665px);
@@ -86,5 +93,24 @@ $lightBlue: rgb(208, 214, 249);
 
   .line {
     opacity: 0;
+  }
+}
+
+@media (max-width: 599px) {
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header {
+    height: 88px;
+  }
+
+  .logoContainer {
+    width: 23.4%;
+  }
+
+  .nav {
+    padding-right: 6.4%;
   }
 }

@@ -97,3 +97,29 @@ $lightBlue: rgb(208, 214, 249);
   font-size: 40px;
   text-transform: uppercase;
 }
+
+@mixin heading5Mobile {
+  color: white;
+  font-size: 16px;
+  letter-spacing: 2.7px;
+  text-transform: uppercase;
+}
+
+@mixin bodyTextMobile {
+  color: $lightBlue;
+  font-size: 15px;
+  line-height: 25px;
+}
+
+@mixin heading2Mobile {
+  color: white;
+  font-size: 56px;
+  text-transform: uppercase;
+}
+
+@mixin subheading2 {
+  color: white;
+  font-size: 14px;
+  letter-spacing: 2.35px;
+  text-transform: uppercase;
+}

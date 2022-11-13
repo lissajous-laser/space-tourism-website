@@ -4,14 +4,16 @@ import { join, kebabCase } from '../lib/utils';
 import styles from '../styles/Header.module.scss';
 import {barlowCondensed, barlowCondensedB} from '../lib/fonts';
 import logo from '../public/assets/shared/logo.svg';
+import burger from '../public/assets/shared/icon-hamburger.svg';
 import Image from 'next/image';
-import { break1280 } from '../lib/constants';
-import {useEffect, useState} from 'react';
+import {break1280, break600} from '../lib/constants';
+import {useLayoutEffect, useState} from 'react';
 
 export default function Header() {
   const [winWidth, setWinWidth] = useState(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    setWinWidth(window.innerWidth);
     window.addEventListener(
       'resize',
       () => {setWinWidth(window.innerWidth)}
@@ -19,22 +21,16 @@ export default function Header() {
     return () => {
       window.removeEventListener(
         'resize',
-        () => setWinWidth(window.innerWidth)
-              
+        () => setWinWidth(window.innerWidth)   
       );
     }
   }, []);
 
   const pageNameForEachNavItem = getFirstPageNameForEachNavItem();
 
-  return (
-    <header className={styles.header}>
-      <div className={styles.logoContainer}>
-        <Image src={logo} alt="logo"/>
-      </div>
-      <div className={styles.frosted}/>
-      <nav className={styles.nav + ' ' + barlowCondensed.className}>
-        <div className={styles.line}/>
+  const renderNavBar = () => {
+    if (winWidth >= break600) {
+      return (
         <ul className={styles.ul}>
           <li >
             <Link href='/'>
@@ -68,13 +64,41 @@ export default function Header() {
             </Link>
           </li>
         </ul>
+      );
+    } else {
+      return <></>;
+    }
+  }
+
+  const renderBurgerbtn = () => {
+    if (winWidth < break600) {
+      return (
+        <button className={styles.burger}>
+          <Image src={burger} alt='Hamburger icon'/>
+        </button>
+      );
+    } else {
+      return <></>;
+    }
+  }
+
+  return (
+    <header className={styles.header}>
+      <div className={styles.logoContainer}>
+        <Image className={styles.logo} src={logo} alt='logo'/>
+      </div>
+      <div className={styles.frosted}/>
+      <nav className={styles.nav + ' ' + barlowCondensed.className}>
+        <div className={styles.line}/>
+        {renderNavBar()}
+        {renderBurgerbtn()}
       </nav>
     </header>
   );
 }
 
 function Index({children, winWidth}: {children: string, winWidth: number}) {
-  if (winWidth > break1280) {
+  if (winWidth >= break1280) {
     return (
       <span className={barlowCondensedB.className + ' ' + styles.index}>
         {children}

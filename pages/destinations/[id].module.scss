@@ -100,6 +100,11 @@ $darkNavy: rgb(11, 13, 25);
   height: 100vh;
 }
 
+.subheading1 {
+  @extend .subheading1;
+  // border: 1px solid yellow;
+}
+
 @media (min-width: 1280px) {
 
 }
@@ -146,7 +151,7 @@ $darkNavy: rgb(11, 13, 25);
 
   .text {
     margin: 50px auto 0;
-    width: 573px;
+    max-width: 573px;
     text-align: center;
 
   }
@@ -176,6 +181,94 @@ $darkNavy: rgb(11, 13, 25);
     width: auto;
   };
 
+}
+
+@media (max-width: 599px) {
+  .yPadding{
+    padding-top: 0;
+    padding-bottom: 29px;
+  }
+
+  .imageAndText {
+    display: block;
+  }
+
+  .heading5White {
+    @include design-system.heading5Mobile;
+    // border: 1px solid pink;
+    margin: 0px auto 32px;
+    text-align: center;
+  }
+
+  .index {
+    @include design-system.heading5Mobile;
+    color: $blueish-grey;
+    width: 32px;
+    // border: 1px solid brown;
+    text-align: left;
+  }
+
+  .img {
+    width: 170px;
+    height: 170px;
+    margin: 0 auto;
+    // border: 1px solid red;
+  }
+
+  .imgContainer {
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+  }
+
+  .ul {
+    margin: 20px auto 0;
+    justify-content: center;
+    gap: 25px;
+  };
+
+  .navTextExt {
+    @include design-system.subheading2;
+    color: $lightBlue;
+  }
+
+  .heading2Ext {
+    @include design-system.heading2Mobile;
+    margin-top: 32px;
+  }
+
+  .bodyTextExt {
+    @include design-system.bodyTextMobile;
+    margin-top: 0;
+    margin-bottom: 32px;
+    // border: 1px solid green;
+  }
+
+  .text {
+    text-align: center;
+    width: 327px;
+    margin: 0 auto;
+    // border: 1px solid orange;
+  }
+
+  .xPadding {
+    width: 100%;
+    // border: 1px solid blue;
+  }
+
+  .stats {
+    display: block;
+    // border: 1px solid red;
+  }
+
+  .attrLeft {
+    width: auto;
+    margin-top: 25px;
+  }
+
+  .subheading1 {
+    margin-bottom: 32px;
+  }
 }
 
 @media (min-width: 376px) and (max-width: 768px) {

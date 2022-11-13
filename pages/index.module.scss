@@ -1,7 +1,7 @@
 @use '../styles/design-system.scss';
 
 $darkNavy: rgb(11, 13, 25);
-
+$lightBlue: rgb(208, 214, 249);
 
 .background {
   background-image: url('../public/assets/home/background-home-desktop.jpg');
@@ -18,7 +18,6 @@ $darkNavy: rgb(11, 13, 25);
 
 .bodyTextExt {
   @extend .bodyText;
-  // border: 1px solid blue;
 }
 
 .heading1Ext {
@@ -115,13 +114,75 @@ $darkNavy: rgb(11, 13, 25);
   }
 }
 
+@media (max-width: 599px) {
+  .background {
+    height: 667px;
+    background-size: cover;
+  }
+
+  .yPadding {
+    padding-top: 0;
+    padding-bottom: 45px;
+  }
+
+  .heading5Ext {
+    @include design-system.navTextTablet;
+    color: $lightBlue;
+  }
+
+  .heading1Ext {
+    @include design-system.heading2Tablet;
+    margin-top: 22px;
+    margin-bottom: 18px;
+
+  }
+
+  .bodyTextExt {
+    @include design-system.bodyTextMobile;
+  }
+
+  .exploreTxt {
+    color: $darkNavy;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+
+  .exploreBtn {
+    width: 150px;
+    height: 150px;
+    margin: 68px auto 0;
+  }
+
+  .text {
+    text-align: center;
+    margin: 26px auto 0;
+    width: 327px;
+  }
+
+  .textAndBtn {
+    display: block;
+    height: auto;
+  }
+
+  .xPadding {
+    width: 100%;
+  }
+}
+
 @media (min-width: 769px) {
 
 }
 
-@media (min-width: 376px) and (max-width: 768px) {
+@media (min-width: 450px) and (max-width: 768px) {
   .background {
     background-image: url('../public/assets/home/background-home-tablet.jpg');
     background-position-x: 50%;
   }  
+}
+
+@media (max-width: 449px) {
+  .background {
+    background-image: url('../public/assets/home/background-home-mobile.jpg');
+    background-position-x: 50%;
+  }
 }

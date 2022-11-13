@@ -184,3 +184,12 @@ $darkNavy: rgb(11, 13, 25);
     left: 1022px;
   }
 }
+
+@media (min-width: 376px) and (max-width: 768px) {
+  .background {
+    background-image: 
+      linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)),
+      url('../../public/assets/crew/background-crew-tablet.jpg');
+    background-position-x: 50%;    
+  }
+}

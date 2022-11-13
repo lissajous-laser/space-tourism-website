@@ -129,6 +129,7 @@ $lightBlue: rgb(208, 214, 249);
 
   .yPadding {
     padding-top: 0;
+    padding-bottom: 0;
   }
 
   .rightAlign {
@@ -206,5 +207,14 @@ $lightBlue: rgb(208, 214, 249);
   .bodyTextExt {
     @include design-system.bodyTextTablet;
 
+  }
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+  .background {
+    background-image: 
+      linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)),
+      url('../../public/assets/technology/background-technology-tablet.jpg');
+    background-position-x: 50%;    
   }
 }

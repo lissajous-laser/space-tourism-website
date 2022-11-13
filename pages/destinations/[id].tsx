@@ -19,7 +19,7 @@ export default function DestinationPage(
             <Header/>
             <h5
               className={join(styles.heading5White, barlowCondensed.className)}
-            >
+          >
               <span className={join(styles.index, barlowCondensedB.className)}>
                 01
               </span>
