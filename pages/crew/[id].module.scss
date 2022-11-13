@@ -5,19 +5,6 @@ $grey: rgb(143, 144, 149);
 // $lightBlue: rgb(208, 214, 249);
 $darkNavy: rgb(11, 13, 25);
 
-@media screen and (max-width: 1440px) {
-  .img {
-    left: 71%;
-  }
-}
-
-@media screen and (min-width: 1441px) {
-  .img {
-    left: 1022px;
-  }
-}
-
-
 .background {
   background-image: 
     linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)),
@@ -42,7 +29,8 @@ $darkNavy: rgb(11, 13, 25);
 .index {
   @extend .heading5;
   color: $blueish-grey;
-  margin-right: 24px;
+  display: inline-block;
+  width: 52px;
 }
 
 .heading5White {
@@ -98,10 +86,101 @@ $darkNavy: rgb(11, 13, 25);
 .img {
   position: absolute;
   bottom: 0;
-  transform: translate(-50%, 0);
+  transform: translateX(-50%);
 }
 
 .canvas {
   background-color: $darkNavy;
   height: 100vh;
+}
+
+@media (min-width: 600px) and (max-width: 1279px) {
+  .yPadding {
+    padding-top: 0;
+  }
+
+  .heading5White {
+    @include design-system.heading5Tablet;
+    color: white;
+    margin: 40px 0 0;
+    padding-left: calc(8.2% - 24px);
+  }
+
+  .index {
+    @include design-system.heading5Tablet;
+    color: $blueish-grey;
+    width: 36px;
+  }
+
+  .rightAlign {
+    display: block;
+  }
+
+  .img {
+    position: static;
+    transform: translate(0, 0);
+    margin: 0 auto;
+    display: block;
+  }
+
+  .textAndSubnav {
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  .xPadding {
+    margin: 0 auto;
+  }
+
+  .bodyTextExt {
+    margin: 0 auto;
+  }
+
+  .role {
+    @include design-system.heading4Tablet;
+    color: $grey;
+  }
+
+  .heading3Ext {
+    @include design-system.heading3Tablet;
+    margin-top: 8px;
+    margin-bottom: 13px;
+  }
+
+  .bodyTextExt {
+    @include design-system.bodyTextTablet;
+    width: 458px;
+    height: 125px;
+  }
+
+  .circle {
+    width: 10px;
+    height: 10px;
+  }
+
+  .subnav {
+    margin: 0 auto;
+    // border: 1px solid yellow;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .img {
+    height: 532px;
+    object-fit: scale-down;
+    margin-top: 41px;
+  }
+}
+
+
+@media screen and (max-width: 1440px) {
+  .img {
+    left: 71%;
+  }
+}
+
+@media screen and (min-width: 1441px) {
+  .img {
+    left: 1022px;
+  }
 }

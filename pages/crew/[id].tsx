@@ -34,16 +34,16 @@ export default function CrewPage({crew}: {crew: Crew | null}) {
         <div className={styles.background}>
           <div className={styles.yPadding}>
             <Header/>
+            <h5
+              className={join(styles.heading5White, barlowCondensed.className)}
+            >
+              <span className={join(styles.index, barlowCondensedB.className)}>
+                02
+              </span>
+              MEET YOUR CREW
+            </h5>
             <div className={styles.rightAlign}>
               <div className={styles.xPadding}>
-                <h5
-                  className={join(styles.heading5White, barlowCondensed.className)}
-                >
-                  <span className={join(styles.index, barlowCondensedB.className)}>
-                    02
-                  </span>
-                  MEET YOUR CREW
-                </h5>
                 <div>
                   <div className={styles.textAndSubnav}>
                     <h4 className={join(styles.role, bellefair.className)}>{crew.role}</h4>

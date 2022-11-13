@@ -33,8 +33,8 @@ $lightBlue: rgb(208, 214, 249);
 .index {
   @extend .heading5;
   color: $blueish-grey;
-  width: 52px;
   display: inline-block;
+  width: 52px;
 }
 
 .subnav {
@@ -175,7 +175,7 @@ $lightBlue: rgb(208, 214, 249);
   }
 
   .circle {
-    @include design-system.circleTextTablet;
+    @include design-system.heading4Tablet;
     width: 60px;
     height: 60px;
   }

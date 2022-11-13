@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Header from '../../components/Header';
 import styles from './[id].module.scss';
 import {barlow, barlowCondensed,barlowCondensedB, bellefair} from '../../lib/fonts';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { break1280 } from '../../lib/constants';
 
 export default function TechnologyPage(
@@ -14,7 +14,10 @@ export default function TechnologyPage(
 
   const [winWidth, setWinWidth] = useState(0);
 
-  useEffect(() => {
+  // useLayoutEffect instead of useEffect otherwise page will 
+  // render with possibly incorrect image for split second.
+  useLayoutEffect(() => {
+    setWinWidth(window.innerWidth);
     window.addEventListener(
       'resize',
       () => setWinWidth(window.innerWidth)
@@ -25,7 +28,7 @@ export default function TechnologyPage(
         () => setWinWidth(window.innerWidth)
       );
     }
-  });
+  }, []);
 
   if (technology !== null) {
     // Function to render image in portrait.
