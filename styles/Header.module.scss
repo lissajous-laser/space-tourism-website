@@ -64,11 +64,18 @@ $lightBlue: rgb(208, 214, 249);
   // z-index: 20;
 }
 
-.burger {
+.modalBtn {
+  width: 30px;
+  height: 27px;
+  display: grid;
+  place-items: center;
   padding: 0;
   border: none;
   background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
+  margin-top: 44px;
+  transform: translateY(-50%);
+  z-index: 2;
 }
 
 @media (min-width: 1280px) {

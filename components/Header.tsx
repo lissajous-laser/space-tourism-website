@@ -1,15 +1,21 @@
 import Link from 'next/link';
 import { getFirstPageNameForEachNavItem } from '../lib/dataFetch';
-import { join, kebabCase } from '../lib/utils';
+import {kebabCase} from '../lib/utils';
 import styles from '../styles/Header.module.scss';
 import {barlowCondensed, barlowCondensedB} from '../lib/fonts';
 import logo from '../public/assets/shared/logo.svg';
 import burger from '../public/assets/shared/icon-hamburger.svg';
+import cross from '../public/assets/shared/icon-close.svg';
 import Image from 'next/image';
 import {break1280, break600} from '../lib/constants';
-import {useLayoutEffect, useState} from 'react';
+import {Dispatch, SetStateAction, useLayoutEffect, useState} from 'react';
+import { MenuState } from '../lib/types';
 
-export default function Header() {
+export default function Header({menuState, setMenuState}: {
+  menuState: MenuState,
+  setMenuState: Dispatch<SetStateAction<MenuState>>
+}) {
+
   const [winWidth, setWinWidth] = useState(0);
 
   useLayoutEffect(() => {
@@ -70,11 +76,24 @@ export default function Header() {
     }
   }
 
+  const openMenuHandler = () => {
+    setMenuState((state) => {
+      if (state === 'open') {
+        return 'closed';
+      } else {
+        return 'open';
+      }
+    });
+  }
+
   const renderBurgerbtn = () => {
+
     if (winWidth < break600) {
       return (
-        <button className={styles.burger}>
-          <Image src={burger} alt='Hamburger icon'/>
+        <button className={styles.modalBtn} onClick={openMenuHandler}>
+          {menuState === 'closed'?
+            <Image src={burger} alt='Open menu icon'/>
+            : <Image src={cross} alt='Close menu icon'/>}
         </button>
       );
     } else {

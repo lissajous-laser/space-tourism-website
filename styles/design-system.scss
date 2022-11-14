@@ -123,3 +123,8 @@ $lightBlue: rgb(208, 214, 249);
   letter-spacing: 2.35px;
   text-transform: uppercase;
 }
+
+@mixin heading4Mobile {
+  color: white;
+  font-size: 16px;
+}

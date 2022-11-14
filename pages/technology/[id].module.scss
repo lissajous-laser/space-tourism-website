@@ -210,6 +210,82 @@ $lightBlue: rgb(208, 214, 249);
   }
 }
 
+@media (max-width: 599px) {
+  .yPadding {
+    padding-top: 0;
+  }
+
+  .rightAlign {
+    display: block;
+  }
+
+  .xPadding {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .img {
+    width: 375px;
+    height: 170px;
+  }
+
+  .heading5White {
+    @include design-system.heading5Mobile;
+    margin: 0px auto 32px;
+    text-align: center;    
+  }
+
+  .index {
+    @include design-system.heading5Mobile;
+    color: $blueish-grey;
+    width: 32px;
+    text-align: left;
+  }
+
+  .imgTextSubnav {
+    display: block;
+  }
+
+  .textAndSubnav {
+    display: block;
+    margin: 30px auto 0;
+    width: 100%;
+  }
+
+  .subnav {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .circle {
+    @include design-system.heading4Mobile;
+    width: 40px;
+    height: 40px;
+
+  }
+
+  .text {
+    width: 327px;
+    text-align: center;
+    margin: 26px auto 0;
+  }
+
+  .navTextExt {
+    @include design-system.subheading2;
+    color: $lightBlue;
+  }
+
+  .heading3Ext {
+    @include design-system.heading4Tablet;
+  }
+
+  .bodyTextExt {
+    @include design-system.bodyTextMobile;
+    width: 327px;
+    margin-top: 13px;
+  }
+}
+
 @media (min-width: 376px) and (max-width: 768px) {
   .background {
     background-image: 

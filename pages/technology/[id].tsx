@@ -5,12 +5,19 @@ import Link from 'next/link';
 import Header from '../../components/Header';
 import styles from './[id].module.scss';
 import {barlow, barlowCondensed,barlowCondensedB, bellefair} from '../../lib/fonts';
-import { useLayoutEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useLayoutEffect, useState } from 'react';
 import { break1280 } from '../../lib/constants';
+import { MenuState } from '../../lib/types';
+import ModalMenu from '../../components/ModalMenu';
+import Head from 'next/head';
 
 export default function TechnologyPage(
-    {technology}: {technology: Technology | null}
-  ) {
+  {technology, menuState, setMenuState}: {
+    technology: Technology | null,
+    menuState: MenuState,
+    setMenuState: Dispatch<SetStateAction<MenuState>>
+  }
+) {
 
   const [winWidth, setWinWidth] = useState(0);
 
@@ -29,6 +36,14 @@ export default function TechnologyPage(
       );
     }
   }, []);
+
+  const renderMenu = () => {
+    if (menuState === 'open') {
+      return <ModalMenu setMenuState={setMenuState}/>;
+    } else {
+      return <></>;
+    }
+  }
 
   if (technology !== null) {
     // Function to render image in portrait.
@@ -64,51 +79,57 @@ export default function TechnologyPage(
     }
 
     return (
-      <div className={styles.canvas}>
-        <div className={styles.background}>
-          <div className={styles.yPadding}>
-            <Header/>
-              <h5
-                className={join(styles.heading5White, barlowCondensed.className)}
-              >
-                <span className={join(styles.index, barlowCondensedB.className)}>
-                  03
-                </span>
-                SPACE LAUNCH 101
-              </h5>
-              <div className={styles.rightAlign}>
-                <div className={styles.xPadding}>
-                  <div className={styles.imgTextSubnav}>
-                    {renderLandscapeImg()}
-                    <div className={styles.textAndSubnav}>
-                      <ul className={styles.subnav}>
-                        {getTechnologiesData().map((x, idx) => (
-                          <li key={x.name}>
-                            <Link href={`/technology/${kebabCase(x.name)}`}>
-                              <div className={join(styles.circle, bellefair.className)} >
-                                {idx + 1}
-                              </div>
+      <div>
+        <Head>
+          <title>{technology.name}</title>
+        </Head>
+        {renderMenu()}
+        <div className={styles.canvas}>
+          <div className={styles.background}>
+            <div className={styles.yPadding}>
+              <Header {...{menuState, setMenuState}}/>
+                <h5
+                  className={join(styles.heading5White, barlowCondensed.className)}
+                >
+                  <span className={join(styles.index, barlowCondensedB.className)}>
+                    03
+                  </span>
+                  SPACE LAUNCH 101
+                </h5>
+                <div className={styles.rightAlign}>
+                  <div className={styles.xPadding}>
+                    <div className={styles.imgTextSubnav}>
+                      {renderLandscapeImg()}
+                      <div className={styles.textAndSubnav}>
+                        <ul className={styles.subnav}>
+                          {getTechnologiesData().map((x, idx) => (
+                            <li key={x.name}>
+                              <Link href={`/technology/${kebabCase(x.name)}`}>
+                                <div className={join(styles.circle, bellefair.className)} >
+                                  {idx + 1}
+                                </div>
 
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className={styles.text}>
-                        <div
-                          className={join(styles.navTextExt, barlowCondensed.className)}
-                        >
-                          THE TERMINOLOGY...
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className={styles.text}>
+                          <div
+                            className={join(styles.navTextExt, barlowCondensed.className)}
+                          >
+                            THE TERMINOLOGY...
+                          </div>
+                          <h3 className={join(styles.heading3Ext, bellefair.className)}>
+                            {technology.name}
+                          </h3>
+                          <p className={join(styles.bodyTextExt, barlow.className  )}>{technology.description}</p>
                         </div>
-                        <h3 className={join(styles.heading3Ext, bellefair.className)}>
-                          {technology.name}
-                        </h3>
-                        <p className={join(styles.bodyTextExt, barlow.className  )}>{technology.description}</p>
                       </div>
+                      {renderPortraitImg()}
                     </div>
-                    {renderPortraitImg()}
                   </div>
                 </div>
-              </div>
+            </div>
           </div>
         </div>
       </div>
