@@ -36,12 +36,12 @@ $darkNavy: rgb(11, 13, 25);
   background-repeat: no-repeat;
   max-width: 1440px;
   margin: 0 auto;
+  background-size: cover;
 }
 
 .imageAndText {
   display: flex;
   justify-content: space-between;
-  // border: 1px solid pink;
 }
 
 .text {
@@ -59,18 +59,19 @@ $darkNavy: rgb(11, 13, 25);
   padding-inline-start: 0;
   display: flex;
   gap: 33px;
+  margin-top: 13px;
+  margin-bottom: 13px;
 }
 
 .heading2Ext {
   @extend .heading2;
-  margin-top: 50px;
+  margin-top: 38px;
   margin-bottom: 0;
 }
 
 .bodyTextExt {
   @extend .bodyText;
-  margin-top: 16px;
-  margin-bottom: 54px;
+  margin: 16px auto 54px;
 }
 
 .stats {
@@ -93,6 +94,20 @@ $darkNavy: rgb(11, 13, 25);
 .navTextExt {
   @extend .navText;
   color: $lightBlue;
+  border-bottom: 3px solid rgba(0, 0, 0, 0);
+  border-top: 3px solid rgba(0, 0, 0, 0); // keep text centered
+  padding-bottom: 12px;
+}
+
+.navTextExt:hover {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.navTextExtSelected {
+  @extend .navText;
+  border-bottom: 3px solid rgb(255, 255, 255);  
+  border-top: 3px solid rgba(0, 0, 0, 0); // keep text centered
+  padding-bottom: 12px;
 }
 
 .canvas {
@@ -102,11 +117,6 @@ $darkNavy: rgb(11, 13, 25);
 
 .subheading1 {
   @extend .subheading1;
-  // border: 1px solid yellow;
-}
-
-@media (min-width: 1280px) {
-
 }
 
 
@@ -118,8 +128,7 @@ $darkNavy: rgb(11, 13, 25);
 
   .yPadding {
     padding-top: 0;
-    padding-bottom: 60px;
-    // margin-bottom: 32px;
+    padding-bottom: 27px;
   }
 
   .imageAndText {
@@ -151,14 +160,14 @@ $darkNavy: rgb(11, 13, 25);
 
   .text {
     margin: 50px auto 0;
+    width: 100%;
     max-width: 573px;
     text-align: center;
-
   }
 
   .heading2Ext {
     @include design-system.heading2Tablet;
-    margin-top: 48px;
+    margin-top: 36px;
   }
 
   .bodyTextExt {
@@ -180,13 +189,12 @@ $darkNavy: rgb(11, 13, 25);
   .attrLeft {
     width: auto;
   };
-
 }
 
 @media (max-width: 599px) {
   .yPadding{
     padding-top: 0;
-    padding-bottom: 29px;
+    padding-bottom: 25px;
   }
 
   .imageAndText {
@@ -234,7 +242,7 @@ $darkNavy: rgb(11, 13, 25);
 
   .heading2Ext {
     @include design-system.heading2Mobile;
-    margin-top: 32px;
+    margin-top: 20px;
   }
 
   .bodyTextExt {
@@ -248,7 +256,6 @@ $darkNavy: rgb(11, 13, 25);
     text-align: center;
     width: 327px;
     margin: 0 auto;
-    // border: 1px solid orange;
   }
 
   .xPadding {
@@ -269,13 +276,29 @@ $darkNavy: rgb(11, 13, 25);
   .subheading1 {
     margin-bottom: 32px;
   }
+
+  .navTextExtSelected {
+    @include design-system.navTextTablet;
+    border-bottom: 3px solid rgb(255, 255, 255);  
+    border-top: 3px solid rgba(0, 0, 0, 0);
+    padding-bottom: 12px;
+  }  
 }
 
-@media (min-width: 376px) and (max-width: 768px) {
+@media (max-width: 768px) {
   .background {
     background-image: 
       linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)),
       url('../../public/assets/destination/background-destination-tablet.jpg');
-    background-position-x: 50%;    
+    background-position-x: 50%;
+  }
+}
+
+@media (max-width: 449px) {
+  .background {
+    background-image:
+        linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)),
+        url('../../public/assets/destination/background-destination-mobile.jpg');
+    background-position-x: 50%;
   }
 }

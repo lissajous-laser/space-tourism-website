@@ -32,6 +32,29 @@ $lightBlue: rgb(208, 214, 249);
   height: 100%;
 }
 
+.li {
+  height: 100%;
+  display: grid;
+  place-items: center;  
+}
+
+.li:hover {
+  border-bottom: 3px solid rgb(255, 255, 255, 0.5);
+  border-top: 3px solid rgb(255, 255, 255, 0); // keep text centered
+}
+
+.liSelected {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-bottom: 3px solid rgb(255, 255, 255, 1);
+  border-top: 3px solid rgb(255, 255, 255, 0); // keep text centered
+}
+
+.link {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 .index {
   padding-right: 10px;
 }
@@ -55,13 +78,10 @@ $lightBlue: rgb(208, 214, 249);
 .frosted {
   position: absolute;
   // background-color: green;
-  background-color: white;
-  opacity: 0.04;
-  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(40px);
   right: 0;
   height: 100%;
-
-  // z-index: 20;
 }
 
 .modalBtn {

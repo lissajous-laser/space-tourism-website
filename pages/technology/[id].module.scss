@@ -11,6 +11,7 @@ $lightBlue: rgb(208, 214, 249);
   background-repeat: no-repeat;
   max-width: 1440px;
   margin: 0 auto;
+  background-size: cover;
 }
 
 .xPadding {
@@ -58,12 +59,16 @@ $lightBlue: rgb(208, 214, 249);
   place-items: center;
 }
 
+.circle:hover {
+  border-color: white;
+}
 
-.circle:active {
-  @extend .circle;
+.circleSelected {
+  @extend .heading4;
   width: 80px;
   height: 80px;
-  background: white;
+  background-color: white;
+  color: $darkNavy;
   border-radius: 9999px;
   display: grid;
   place-items: center;
@@ -113,7 +118,7 @@ $lightBlue: rgb(208, 214, 249);
 .bodyTextExt {
   @extend .bodyText;
   margin-top: 15px;
-  width: 444px;
+  width: 458px;
 }
 
 .canvas {
@@ -122,14 +127,9 @@ $lightBlue: rgb(208, 214, 249);
 }
 
 @media (min-width: 600px) and (max-width: 1279px) {
-  .background {
-    height: 1024px;
-    background-size: cover;
-  }
-
   .yPadding {
     padding-top: 0;
-    padding-bottom: 0;
+    padding-bottom: 83px;
   }
 
   .rightAlign {
@@ -181,6 +181,13 @@ $lightBlue: rgb(208, 214, 249);
     height: 60px;
   }
 
+  .circleSelected {
+    @include design-system.heading4Tablet;
+    width: 60px;
+    height: 60px;
+    color: $darkNavy;
+  }
+
   .img {
     display: block;
     margin: 0 auto;
@@ -206,13 +213,13 @@ $lightBlue: rgb(208, 214, 249);
 
   .bodyTextExt {
     @include design-system.bodyTextTablet;
-
   }
 }
 
 @media (max-width: 599px) {
   .yPadding {
     padding-top: 0;
+    padding-bottom: 27px;
   }
 
   .rightAlign {
@@ -227,6 +234,10 @@ $lightBlue: rgb(208, 214, 249);
   .img {
     width: 375px;
     height: 170px;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    object-fit: cover
   }
 
   .heading5White {
@@ -264,6 +275,13 @@ $lightBlue: rgb(208, 214, 249);
 
   }
 
+  .circleSelected {
+    @include design-system.heading4Mobile;
+    width: 40px;
+    height: 40px;
+    color: $darkNavy;
+  }
+
   .text {
     width: 327px;
     text-align: center;
@@ -286,11 +304,20 @@ $lightBlue: rgb(208, 214, 249);
   }
 }
 
-@media (min-width: 376px) and (max-width: 768px) {
+@media (max-width: 768px) {
   .background {
     background-image: 
       linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)),
       url('../../public/assets/technology/background-technology-tablet.jpg');
-    background-position-x: 50%;    
+    background-position-x: 50%;
+  }
+}
+
+@media (max-width: 449px) {
+  .background {
+    background-image: 
+      linear-gradient(rgba(11, 13, 25, 0.4), rgba(11, 13, 25, 0.4)),
+      url('../../public/assets/technology/background-technology-mobile.jpg');
+    background-position-x: 50%;
   }
 }

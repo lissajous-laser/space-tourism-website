@@ -5,41 +5,24 @@ import Link from 'next/link';
 import Header from '../../components/Header';
 import styles from './[id].module.scss';
 import {barlow, barlowCondensed,barlowCondensedB, bellefair} from '../../lib/fonts';
-import { Dispatch, SetStateAction, useLayoutEffect, useState } from 'react';
-import { break1280 } from '../../lib/constants';
+import { Dispatch, SetStateAction} from 'react';
+import { break1280, break600 } from '../../lib/constants';
 import { MenuState } from '../../lib/types';
 import ModalMenu from '../../components/ModalMenu';
 import Head from 'next/head';
 
 export default function TechnologyPage(
-  {technology, menuState, setMenuState}: {
+  {technology, menuState, setMenuState, winWidth}: {
     technology: Technology | null,
     menuState: MenuState,
-    setMenuState: Dispatch<SetStateAction<MenuState>>
+    setMenuState: Dispatch<SetStateAction<MenuState>>,
+    winWidth: number
   }
 ) {
 
-  const [winWidth, setWinWidth] = useState(0);
-
-  // useLayoutEffect instead of useEffect otherwise page will 
-  // render with possibly incorrect image for split second.
-  useLayoutEffect(() => {
-    setWinWidth(window.innerWidth);
-    window.addEventListener(
-      'resize',
-      () => setWinWidth(window.innerWidth)
-    );
-    return () => {
-      window.removeEventListener(
-        'resize',
-        () => setWinWidth(window.innerWidth)
-      );
-    }
-  }, []);
-
   const renderMenu = () => {
-    if (menuState === 'open') {
-      return <ModalMenu setMenuState={setMenuState}/>;
+    if (menuState === 'open' && winWidth < break600) {
+      return <ModalMenu {...{setMenuState, navState: 'technology'}}/>;
     } else {
       return <></>;
     }
@@ -83,15 +66,22 @@ export default function TechnologyPage(
         <Head>
           <title>{technology.name}</title>
         </Head>
-        {renderMenu()}
         <div className={styles.canvas}>
+          {renderMenu()}
           <div className={styles.background}>
             <div className={styles.yPadding}>
-              <Header {...{menuState, setMenuState}}/>
-                <h5
-                  className={join(styles.heading5White, barlowCondensed.className)}
-                >
-                  <span className={join(styles.index, barlowCondensedB.className)}>
+              <Header {...{
+                menuState,
+                setMenuState,
+                winWidth,
+                navState: 'technology'
+              }}/>
+                <h5 className={
+                  join(styles.heading5White, barlowCondensed.className)
+                }>
+                  <span className={
+                    join(styles.index, barlowCondensedB.className)
+                  }>
                     03
                   </span>
                   SPACE LAUNCH 101
@@ -105,7 +95,11 @@ export default function TechnologyPage(
                           {getTechnologiesData().map((x, idx) => (
                             <li key={x.name}>
                               <Link href={`/technology/${kebabCase(x.name)}`}>
-                                <div className={join(styles.circle, bellefair.className)} >
+                                <div
+                                  {... x.name === technology.name ?
+                                    {className: join(styles.circleSelected, bellefair.className)}
+                                    : {className: join(styles.circle, bellefair.className)}}    
+                                >
                                   {idx + 1}
                                 </div>
 
@@ -114,15 +108,21 @@ export default function TechnologyPage(
                           ))}
                         </ul>
                         <div className={styles.text}>
-                          <div
-                            className={join(styles.navTextExt, barlowCondensed.className)}
-                          >
+                          <div className={
+                            join(styles.navTextExt, barlowCondensed.className)
+                          }>
                             THE TERMINOLOGY...
                           </div>
-                          <h3 className={join(styles.heading3Ext, bellefair.className)}>
+                          <h3 className={
+                            join(styles.heading3Ext, bellefair.className)
+                          }>
                             {technology.name}
                           </h3>
-                          <p className={join(styles.bodyTextExt, barlow.className  )}>{technology.description}</p>
+                          <p className={
+                            join(styles.bodyTextExt, barlow.className)
+                          }>
+                            {technology.description}
+                          </p>
                         </div>
                       </div>
                       {renderPortraitImg()}

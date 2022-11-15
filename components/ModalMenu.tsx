@@ -1,15 +1,18 @@
 import styles from '../styles/ModalMenu.module.scss';
 import { getFirstPageNameForEachNavItem } from '../lib/dataFetch';
 import Link from 'next/link';
-import {kebabCase} from '../lib/utils';
+import {join, kebabCase} from '../lib/utils';
 import {barlowCondensed, barlowCondensedB} from '../lib/fonts';
 import { Dispatch, SetStateAction } from 'react';
-import { MenuState } from '../lib/types';
+import { MenuState, NavState } from '../lib/types';
 
 
 
-export default function ModalMenu({setMenuState}: {
-  setMenuState: Dispatch<SetStateAction<MenuState>>}
+export default function ModalMenu(
+  {setMenuState, navState}: {
+    setMenuState: Dispatch<SetStateAction<MenuState>>,
+    navState: NavState
+  }
 ) {
 
   const closeMenuHandler = () => {
@@ -21,9 +24,9 @@ export default function ModalMenu({setMenuState}: {
   return (
     <div className={styles.menu}>
       <ul className={styles.ul}>
-        <li>
+        <li {... navState === 'home' && {className: styles.liSelected}}>
           <Link 
-            className={barlowCondensed.className}
+            className={join(styles.link, barlowCondensed.className)}
             href='/'
           >
             <span className={barlowCondensedB.className + ' ' + styles.index}>
@@ -32,9 +35,9 @@ export default function ModalMenu({setMenuState}: {
             Home
           </Link>
         </li>
-        <li>
+        <li {... navState === 'destination' && {className: styles.liSelected}}>
           <Link
-            className={barlowCondensed.className}
+            className={join(styles.link, barlowCondensed.className)}
             href={`/destinations/${kebabCase(pageNameForEachNavItem.destination)}`}
           >
             <span className={barlowCondensedB.className + ' ' + styles.index}>
@@ -43,9 +46,9 @@ export default function ModalMenu({setMenuState}: {
               Destination
           </Link>
         </li>
-        <li>
+        <li {... navState === 'crew' && {className: styles.liSelected}}>
           <Link 
-            className={barlowCondensed.className}
+            className={join(styles.link, barlowCondensed.className)}
             href={`/crew/${kebabCase(pageNameForEachNavItem.crew)}`}
           >
             <span className={barlowCondensedB.className + ' ' + styles.index}>
@@ -54,9 +57,9 @@ export default function ModalMenu({setMenuState}: {
               Crew
           </Link>
         </li>
-        <li>
+        <li {... navState === 'technology' && {className: styles.liSelected}}>
           <Link
-            className={barlowCondensed.className}
+            className={join(styles.link, barlowCondensed.className)}
             href={`/technology/${kebabCase(pageNameForEachNavItem.technology)}`}
           >
           <span className={barlowCondensedB.className + ' ' + styles.index}>
