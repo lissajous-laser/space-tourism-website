@@ -60,7 +60,7 @@ export default function DestinationPage(
                   <div className={styles.imgContainer}>
                     <Image
                       className={styles.img}
-                      src={destination.images.png.substring(1)}
+                      src={destination.images.webp.substring(1)}
                       width={445}
                       height={445}
                       alt={destination.name}
