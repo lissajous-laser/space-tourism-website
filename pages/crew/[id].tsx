@@ -72,12 +72,13 @@ export default function CrewPage(
             {getCrewData().map((x) => (
               <li key={x.name}>
                 <Link href={`/crew/${kebabCase(x.name)}`}>
-                  <div 
-                    {... x.name === crew.name ?
-                      {className:  styles.circleSelected}
-                      : {className: styles.circle}}
-                  >
-
+                  <div className={styles.circleClickableArea}>
+                    <div 
+                      {... x.name === crew.name ?
+                        {className: styles.circleSelected}
+                        : {className: styles.circle}}
+                    >
+                    </div>
                   </div>
                 </Link>
               </li>            
