@@ -11,15 +11,18 @@ export default function App({ Component, pageProps }: AppProps) {
   // useLayoutEffect instead of useEffect otherwise page will 
   // render with possibly incorrect image for split second.
   useLayoutEffect(() => {
-    setWinWidth(window.innerWidth);
+    const updateWinWidth = () => setWinWidth(window.innerWidth);
+
+    updateWinWidth();
+
     window.addEventListener(
       'resize',
-      () => setWinWidth(window.innerWidth)
+      updateWinWidth
     );
     return () => {
       window.removeEventListener(
         'resize',
-        () => setWinWidth(window.innerWidth)
+        updateWinWidth
       );
     }
   }, []);

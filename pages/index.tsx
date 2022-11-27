@@ -6,10 +6,9 @@ import {join, kebabCase} from '../lib/utils';
 import Header from '../components/Header';
 import {barlow, barlowCondensed, bellefair} from '../lib/fonts';
 import {MenuState} from '../lib/types';
-import {Dispatch, SetStateAction, useEffect} from 'react';
+import {Dispatch, SetStateAction} from 'react';
 import ModalMenu from '../components/ModalMenu';
 import {break600} from '../lib/constants';
-import { useRouter } from 'next/router';
 
 export default function Home(
   {destination, menuState, setMenuState, winWidth}: {
