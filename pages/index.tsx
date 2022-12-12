@@ -41,7 +41,7 @@ export default function Home(
             <Header
               {...{menuState, setMenuState, winWidth, navState: 'home'}}
             />
-            <div className={styles.xPadding}>
+            <main className={styles.xPadding}>
               <div className={styles.textAndBtn}>
                 <div className={styles.text}>
                   <h5 className={
@@ -71,7 +71,7 @@ export default function Home(
                   </div>
                 </Link>
               </div>
-            </div>
+            </main>
           </div>
         </div>
       </div>

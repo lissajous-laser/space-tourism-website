@@ -44,82 +44,87 @@ export default function DestinationPage(
                 winWidth,
                 navState: 'destination'
               }}/>
+            <main>
               <h5 className={
-                join(styles.heading5White,barlowCondensed.className)
-              }>
-                <span className={
-                  join(styles.index, barlowCondensedB.className)
+                  join(styles.heading5White,barlowCondensed.className)
                 }>
-                  01
-                </span>
-                PICK YOUR DESTINATION
-              </h5>
-              <div className={styles.xPadding}>
-  
-                <div className={styles.imageAndText}>
-                  <div className={styles.imgContainer}>
-                    <Image
-                      className={styles.img}
-                      src={destination.images.webp.substring(1)}
-                      width={445}
-                      height={445}
-                      alt={destination.name}
-                    />
-                  </div>
-                  <div className={styles.text}>
-                    <ul className={styles.ul}>
-                      {getDestinationsData().map((x) => (
-                        <li 
-                          key={x.name}
-                          {...x.name === destination.name ?
-                            {className: join(barlowCondensed.className, styles.navTextExtSelected)}
-                            : {className: join(barlowCondensed.className, styles.navTextExt)}}
-                        >
-                          <Link href={`/destinations/${kebabCase(x.name)}`}>
-                            {x.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                    <h2 className={
-                      join(bellefair.className, styles.heading2Ext)
-                    }>
-                      {destination.name}
-                    </h2>
-                    <p className={
-                      join(styles.bodyTextExt, barlow.className)
-                    }>
-                      {destination.description}
-                    </p>
-                    <div className={styles.stats}>
-                      <div>
-                        <h5 className={
-                          join(styles.attrLeft, barlowCondensed.className)
-                        }>
-                          AVG. DISTANCE
-                        </h5>
-                        <div className={
-                          join(styles.subheading1, bellefair.className)
-                        }>
-                          {destination.distance}
+                  <span className={
+                    join(styles.index, barlowCondensedB.className)
+                  }>
+                    01
+                  </span>
+                  PICK YOUR DESTINATION
+                </h5>
+                <div className={styles.xPadding}>
+    
+                  <div className={styles.imageAndText}>
+                    <div className={styles.imgContainer}>
+                      <Image
+                        className={styles.img}
+                        src={destination.images.webp.substring(1)}
+                        width={445}
+                        height={445}
+                        alt={destination.name}
+                      />
+                    </div>
+                    <div className={styles.text}>
+                      <ul className={styles.ul}>
+                        {getDestinationsData().map((x) => (
+                          <li 
+                            key={x.name}
+                            {...x.name === destination.name ?
+                              {className: join(barlowCondensed.className, styles.navTextExtSelected)}
+                              : {className: join(barlowCondensed.className, styles.navTextExt)}}
+                          >
+                            <Link href={`/destinations/${kebabCase(x.name)}`}>
+                              {x.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                      <h2 className={
+                        join(bellefair.className, styles.heading2Ext)
+                      }>
+                        {destination.name}
+                      </h2>
+                      <p className={
+                        join(styles.bodyTextExt, barlow.className)
+                      }>
+                        {destination.description}
+                      </p>
+                      <div className={styles.stats}>
+                        <div>
+                          <h5 className={
+                            join(styles.attrLeft, barlowCondensed.className)
+                          }>
+                            AVG. DISTANCE
+                          </h5>
+                          <div className={
+                            join(styles.subheading1, bellefair.className)
+                          }>
+                            {destination.distance}
+                          </div>
                         </div>
-                      </div>
-                      <div>
-                        <h5 className={
-                          join(styles.attr, barlowCondensed.className)
-                        }>
-                          EST. TRAVEL TIME
-                        </h5>
-                        <div className={
-                          join(styles.subheading1, bellefair.className)
-                        }>
-                          {destination.travel}
+                        <div>
+                          <h5 className={
+                            join(styles.attr, barlowCondensed.className)
+                          }>
+                            EST. TRAVEL TIME
+                          </h5>
+                          <div className={
+                            join(styles.subheading1, bellefair.className)
+                          }>
+                            {destination.travel}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+
+
+
+            </main>
             </div>
           </div>
         </div>

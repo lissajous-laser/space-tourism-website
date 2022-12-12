@@ -105,37 +105,39 @@ export default function CrewPage(
                 winWidth,
                 navState: 'crew'
               }}/>
-              <h5 className={
-                join(styles.heading5White, barlowCondensed.className)
-              }>
-                <span className={
-                  join(styles.index, barlowCondensedB.className)
+              <main>
+                <h5 className={
+                  join(styles.heading5White, barlowCondensed.className)
                 }>
-                  02
-                </span>
-                MEET YOUR CREW
-              </h5>
-              <div className={styles.rightAlign}>
-                <div className={styles.xPadding}>
-                  {renderPortrait(winWidth < break600)}
-                  <div className={styles.textAndSubnav}>
-                    {renderSubnav(winWidth < break600)}
-                    <h4 className={join(styles.role, bellefair.className)}>
-                      {crew.role}
-                    </h4>
-                    <h3 className={
-                      join(styles.heading3Ext, bellefair.className)
-                    }>
-                      {crew.name}
-                    </h3>
-                    <p className={join(styles.bodyTextExt, barlow.className)}>
-                      {crew.bio}
-                    </p>
-                    {renderSubnav(winWidth >= break600)}
+                  <span className={
+                    join(styles.index, barlowCondensedB.className)
+                  }>
+                    02
+                  </span>
+                  MEET YOUR CREW
+                </h5>
+                <div className={styles.rightAlign}>
+                  <div className={styles.xPadding}>
+                    {renderPortrait(winWidth < break600)}
+                    <div className={styles.textAndSubnav}>
+                      {renderSubnav(winWidth < break600)}
+                      <h4 className={join(styles.role, bellefair.className)}>
+                        {crew.role}
+                      </h4>
+                      <h3 className={
+                        join(styles.heading3Ext, bellefair.className)
+                      }>
+                        {crew.name}
+                      </h3>
+                      <p className={join(styles.bodyTextExt, barlow.className)}>
+                        {crew.bio}
+                      </p>
+                      {renderSubnav(winWidth >= break600)}
+                    </div>
+                    {renderPortrait(winWidth >= break600)}
                   </div>
-                  {renderPortrait(winWidth >= break600)}
                 </div>
-              </div>
+              </main>
             </div>
           </div>
         </div>

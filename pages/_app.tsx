@@ -34,8 +34,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <Component
-      // menuState={menuState}
-      // setMenuState={setMenuState}
       {...{menuState, setMenuState, winWidth}}
       {...pageProps}
     />

@@ -76,6 +76,7 @@ export default function TechnologyPage(
                 winWidth,
                 navState: 'technology'
               }}/>
+              <main>
                 <h5 className={
                   join(styles.heading5White, barlowCondensed.className)
                 }>
@@ -129,6 +130,7 @@ export default function TechnologyPage(
                     </div>
                   </div>
                 </div>
+              </main>
             </div>
           </div>
         </div>
